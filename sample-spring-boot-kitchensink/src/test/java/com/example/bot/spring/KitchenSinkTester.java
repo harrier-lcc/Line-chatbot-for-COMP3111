@@ -71,7 +71,15 @@ public class KitchenSinkTester {
 		} catch (Exception e) {
 			thrown = true;
 		}
-		assertThat(!thrown);
+		assertThat(thrown);
 		assertThat(result.equals("def"));
+		
+		try {
+			result = this.databaseEngine.search("I am fine");
+		} catch (Exception e) {
+			thrown = true;
+		}
+		assertThat(thrown);
+		assertThat(result.equals("Great!"));
 	}
 }
